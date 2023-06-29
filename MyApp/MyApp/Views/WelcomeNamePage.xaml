@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.WelcomeNamePage"
+             BackgroundColor="#5771F9"
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <vm:WelcomeNameViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Image Aspect="AspectFill" Source="WelcomeNamePageilustration"/>
+                <Label Text="{Binding Greetin}" TextColor="White" FontFamily="Poppins" 
+                       HorizontalOptions="Center" FontSize="42"/>
+                <Label Text="It seems everything went well and your app is ready to work with you" TextColor="White"
+                    Margin="0,0,0,60" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Button Text="Get Started" HeightRequest="55" BackgroundColor="White" HorizontalOptions="Center"
+                    TextColor="#151940" Command="{Binding NextPageCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

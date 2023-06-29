@@ -1,0 +1,103 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <UserSecretsId>dbe6af85-da92-48ed-b737-e64cb49980ba</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.11" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.3" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />  
+    <PackageReference Include="Xamarin.Forms.MaskedEntry" Version="1.1.0" />  
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />  
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2578" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Styles\TriggersStyle.xaml.cs">
+      <DependentUpon>TriggersStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Styles\VisualStateManagerStyles.xaml.cs">
+      <DependentUpon>VisualStateManagerStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Styles\StandartStyles.xaml.cs">
+      <DependentUpon>StandartStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Styles\StaticStyles.xaml.cs">
+      <DependentUpon>StaticStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LogInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PaymentSuccessfulPage.xaml.cs">
+      <DependentUpon>PaymentSuccessfulPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WelcomeNamePage.xaml.cs">
+      <DependentUpon>WelcomeNamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tutorial1Page.xaml.cs">
+      <DependentUpon>Tutorial1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tutorial2Page.xaml.cs">
+      <DependentUpon>Tutorial2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tutorial3Page.xaml.cs">
+      <DependentUpon>Tutorial3Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Styles\StandartStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CreateNewPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ForgotPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LogInPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PaymentSuccessfulPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipientsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RegisterPhoneNumberPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\StartPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tutorial1Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tutorial2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tutorial3Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VerifyCodePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WelcomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

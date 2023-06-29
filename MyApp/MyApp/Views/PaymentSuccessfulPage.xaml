@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.PaymentSuccessfulPage"
+             Visual="Material"
+             xmlns:vm="clr-namespace:MyApp.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:PaymentSuccessfulViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid Margin="35,0,35,25">
+            <Frame Margin="5,50,0,0" CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" HasShadow="True" Padding="0">
+                <ImageButton CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" Source="PastPageArrow.png"
+                             Padding="15" BackgroundColor="White"
+                             Command="{Binding PastPageCommand}"/>
+            </Frame>
+            <Frame Margin="0,50,5,0" CornerRadius="15" HorizontalOptions="EndAndExpand" VerticalOptions="Start" HasShadow="True" Padding="0">
+                <ImageButton CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" Source="InviteFriendsObliqueArrow.png"
+                             Padding="15" BackgroundColor="White"/>
+            </Frame>
+            <StackLayout>
+                <Image Aspect="AspectFill" Source="PaymentSuccessfulImage"  VerticalOptions="End"
+                   Margin="0,40,0,0"/>
+                <StackLayout>
+                    <Label Text="Payment Successful" Style="{StaticResource LableTitle}"
+                       Margin="0,0,0,15" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Your Payment was successful. Make this user in your favorite list" 
+                           HorizontalOptions="Center" 
+                       HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Frame VerticalOptions="End" BackgroundColor="#5771F9" CornerRadius="8" Margin="0,30,0,0">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20">
+                        <Image Source="PaymentSuccessfulPortrait"/>
+                        <StackLayout>
+                            <Label Text="Krish Kendall" TextColor="White" FontSize="16" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Label Text="Canada" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                        </StackLayout>
+                        <Frame CornerRadius="10" HorizontalOptions="EndAndExpand" HasShadow="True" Padding="0" Margin="0">
+                            <ImageButton Source="PaymentSuccessfulHeart.png"
+                             Padding="15" BackgroundColor="White"/>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+                <Label Text="SHOULD ARRIVED BY" CharacterSpacing="4" FontSize="12" TextColor="#7F8192" HorizontalOptions="Center"
+                       Margin="0,37,0,0"/>
+                <Label Text="27 APRIL 2020" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </StackLayout>
+            <Button VerticalOptions="End" Text="Track" HorizontalOptions="Center" Padding="60,0" Command="{Binding NextPageCommand}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

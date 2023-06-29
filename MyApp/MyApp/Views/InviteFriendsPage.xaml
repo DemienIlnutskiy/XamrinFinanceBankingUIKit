@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.InviteFriendsPage"
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <vm:InviteFriendsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid Margin="35,0,35,25">
+            <Frame Margin="5,50,0,0" CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" HasShadow="True" Padding="0">
+                <ImageButton CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" Source="PastPageArrow.png"
+                             Padding="15" BackgroundColor="White"
+                             Command="{Binding PastPageCommand}"/>
+            </Frame>
+            <Frame Margin="0,50,5,0" CornerRadius="15" HorizontalOptions="EndAndExpand" VerticalOptions="Start" HasShadow="True" Padding="0">
+                <ImageButton CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" Source="InviteFriendsObliqueArrow.png"
+                             Padding="15" BackgroundColor="White"/>
+            </Frame>
+            <StackLayout>
+                <Image Aspect="AspectFill" Source="InvitaFriendsMoney"  VerticalOptions="End"
+                   Margin="0,40,0,0"/>
+                <StackLayout>
+                    <Label Text="Earn $100" Style="{StaticResource LableTitle}"
+                       Margin="0,0,0,15" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Invite your friend and you can earn up to 100$ for every 5 friends who transfer over 400$" 
+                           HorizontalOptions="Center" 
+                       HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Label Text="Terms and Conditions" FontSize="14" TextColor="#486484"
+                           TextDecorations="Underline" HorizontalOptions="Center" Margin="0,62">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Frame VerticalOptions="End" BackgroundColor="#5771F9" CornerRadius="8" Margin="0,0,0,10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="Invite friends now" TextColor="White" HorizontalOptions="Start" 
+                           VerticalOptions="Center"/>
+                    <Frame CornerRadius="10" HorizontalOptions="EndAndExpand" HasShadow="True" Padding="0" Margin="0">
+                        <ImageButton Source="InviteFriendsArrow.png"
+                             Padding="15" BackgroundColor="White"
+                             Command="{Binding NextPageCommand}"/>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

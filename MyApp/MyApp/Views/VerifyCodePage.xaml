@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.VerifyCodePage"
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             xmlns:custom="clr-namespace:MyApp.CustomElements"
+             Visual="Material"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <vm:VerifyCodeViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <custom:VerifyCodeCustomEntry2 BorderColor="#C8C8C8" IsVisible="False" HorizontalOptions="FillAndExpand"/>
+            <Frame Margin="5,95,0,0" CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" HasShadow="True" Padding="0">
+                <ImageButton CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Start" Source="PastPageArrow.png"
+                             Padding="15" BackgroundColor="White"
+                             Command="{Binding PastPageCommand}"/>
+            </Frame>
+            <StackLayout>
+                <Label Text="Verify Code" Style="{StaticResource LableTitle}"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding MessageRecipient}" FontSize="18    "/>
+                            <Span FontAttributes="Bold" FontSize="18" Text="{Binding Recipient}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Grid HorizontalOptions="FillAndExpand" HeightRequest="70" ColumnDefinitions="*,*,*,*" Margin="0,80,0,0" x:Name="grid">
+                    
+                    <custom:VerifyCodeCustomEntry BorderThickness="2" x:Name="FirstNumber"
+                                        FontSize="40" HorizontalTextAlignment="Center" BorderColor="#5771F9"
+                                        TextChanged="Number_TextChanged"
+                                        Keyboard="Numeric" MaxLength="1" 
+                                        OnBackspace="Number_OnBackspace"/>
+
+                    <custom:VerifyCodeCustomEntry Grid.Column="1" BorderThickness="2" x:Name="SecondNumber"
+                                        FontSize="40" HorizontalTextAlignment="Center" BorderColor="#5771F9"
+                                        TextChanged="Number_TextChanged"
+                                        Keyboard="Numeric" MaxLength="1"
+                                        OnBackspace="Number_OnBackspace"
+                                        IsReadOnly="True"/>
+
+                    <custom:VerifyCodeCustomEntry Grid.Column="2" BorderThickness="2" x:Name="ThirdNumber"
+                                        FontSize="40" HorizontalTextAlignment="Center" BorderColor="#5771F9"
+                                        TextChanged="Number_TextChanged"
+                                        Keyboard="Numeric" MaxLength="1"
+                                        OnBackspace="Number_OnBackspace"
+                                        IsReadOnly="True"/>
+
+                    <custom:VerifyCodeCustomEntry Grid.Column="3" BorderThickness="2" x:Name="FourthNumber"
+                                        FontSize="40" HorizontalTextAlignment="Center" BorderColor="#5771F9"
+                                        TextChanged="Number_TextChanged"
+                                        Keyboard="Numeric" MaxLength="1"
+                                        OnBackspace="Number_OnBackspace"
+                                        IsReadOnly="True"/>
+                </Grid>
+                <Label Text="{Binding Timer}" FontSize="13" TextColor="#5771F9"/>
+                <Label Text="This session will end in 60 second" FontSize="13" TextColor="#486484" Margin="0,50,0,0"
+                       IsVisible="{Binding SendingSMS}"/>
+                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Spacing="2"
+                             HorizontalOptions="StartAndExpand">
+                    <Label Text="Didn't recive a code?" FontSize="13" TextColor="#486484"/>
+                    <Label Text="Resend Code" BackgroundColor="White" FontSize="13" TextColor="#5771F9"
+                           TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ResendMessageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

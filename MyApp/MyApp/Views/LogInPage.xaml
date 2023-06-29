@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.LogInPage"
+             xmlns:vm="clr-namespace:MyApp.ViewModels" BackgroundColor="White"
+             Visual="Material">
+
+    <ContentPage.BindingContext>
+        <vm:LogInViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Spacing="0">
+                <Label Text="Log In" Style="{StaticResource LableTitle}" Margin="0,0,0,30"/>
+                <Grid ColumnDefinitions="*,*" Margin="0">
+                    <Button Text="GOOGLE" FontSize="14" HeightRequest="50" BackgroundColor="#E9ECF1"
+                        CornerRadius="10" TextColor="#151940" CharacterSpacing="2.5" x:Name="Google"/>
+                    <Button Grid.Column="1" Text="Facebook" FontSize="14" HeightRequest="53" CornerRadius="10"
+                    BackgroundColor="#E9ECF1" TextColor="#151940" CharacterSpacing="2.5"/>
+                </Grid>
+                <Label Text="or" TextColor="#486484" Margin="5" FontSize="15" HorizontalOptions="Center"
+                        FontFamily="SF Pro Display"/>
+
+                <Frame Padding="0">
+                    <Entry Placeholder="Enter Email Address" x:Name="Name" Text="{Binding Email}"
+                           Style="{StaticResource EntryTextColorStyle}"/>
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame"
+                                     Binding="{Binding Source={x:Reference Name},
+                                     Path=IsFocused}"
+                                     Value="True">
+                            <Setter Property="BorderColor" Value="#314BCE"/>
+                        </DataTrigger>
+                    </Frame.Triggers>
+                </Frame>
+
+                <Label FontSize="14" Text="{Binding WrongEmail}" Margin="0,5" HorizontalOptions="Center"/>
+                
+                <Frame Padding="0">
+                    <Grid ColumnDefinitions="*,auto" Margin="0">
+                        <Entry Placeholder="Enter Password" x:Name="Password" IsPassword="True" Text="{Binding Password}"
+                               Style="{StaticResource EntryTextColorStyle}">
+                            <Entry.Triggers>
+                                <DataTrigger TargetType="Entry" Binding="{Binding Source={x:Reference IBPassword}, 
+                                    Path=BindingContext}"
+                                    Value=" ">
+                                    <Setter Property="IsPassword" Value="False"/>
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
+                        <ImageButton Source="RegisterIsPasswordTrue" WidthRequest="30" HeightRequest="30" x:Name="IBPassword"
+                                     BackgroundColor="#E9ECF1" Margin="-6,0,0,0" Grid.Column="1" Padding="5,0" 
+                                     Style="{StaticResource ClickedViewPasswordStyle}"/>
+                    </Grid>
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame"
+                                     Binding="{Binding Source={x:Reference Password},
+                                     Path=IsFocused}"
+                                     Value="True">
+                            <Setter Property="BorderColor" Value="#314BCE"/>
+                        </DataTrigger>
+                    </Frame.Triggers>
+                </Frame>
+
+                <Label FontSize="14" Text="{Binding WrongPassword}" Margin="0,5" HorizontalOptions="Center"/>
+
+                <Label Text="Forgot Password?" TextDecorations="Underline" TextColor="#5771F9" FontSize="13" HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                    
+                <Button Margin="0,50" Text="Log In" Command="{Binding LoginCommand}"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Start" VerticalOptions="End" Margin="0,40">
+                <Label Text="Don't have an account?" FontSize="14" HorizontalOptions="Start"/>
+                <ImageButton Source="LoginPageRegister" HorizontalOptions="Start"
+                         BackgroundColor="White" Command="{Binding RegisterCommand}" Margin="0,10,0,0"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

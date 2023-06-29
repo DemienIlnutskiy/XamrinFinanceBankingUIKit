@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.RegisterPhoneNumberPage"
+             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" 
+             xmlns:entry_mask="clr-namespace:Xamarin.Forms.MaskedEntry;assembly=Xamarin.Forms.MaskedEntry"
+             xmlns:vm="clr-namespace:MyApp.ViewModels" BackgroundColor="White"
+             Visual="Material">
+
+    <ContentPage.BindingContext>
+        <vm:RegisterPhoneNumberViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Label Text="Register" Style="{StaticResource LableTitle}" Margin="0,0,0,20" 
+                    HorizontalOptions="Start"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Please enter " FontSize="18"/>
+                            <Span Text="your phone number " FontAttributes="Bold" FontSize="18"/>
+                            <Span Text="and "/>
+                            <Span Text="location " FontAttributes="Bold" FontSize="18"/>
+                            <Span Text="so we can verify you."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Enter your location" FontSize="16" Margin="0,45,0,15" HorizontalOptions="Start"/>
+
+
+                <Frame
+                    CornerRadius="10"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="0"
+                    BorderColor="White"
+                    IsClippedToBounds="True"
+                    BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowPopupCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <forms:SvgCachedImage
+                            HeightRequest="26"
+                            Source="{Binding SelectedCountry.FlagUrl}"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="26" 
+                            Margin="20,10,0,10"/>
+                        <Label Text="{Binding SelectedCountry.CountryName}"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Start"
+                               Margin="10,0"
+                               HorizontalOptions="Start"
+                               VerticalOptions="CenterAndExpand"/>
+                        <Image Source="RegisterPhoneNumberPickerArrow.png"
+                               Margin="20,0"
+                               HorizontalOptions="EndAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </Frame>
+
+
+                <Label Text="Enter your Phone Number" FontSize="16" Margin="0,20,0,15" HorizontalOptions="Start"/>
+
+                <Frame Padding="0">
+                    <entry_mask:MaskedEntry Mask="+XXX XXX XXXX" x:Name="PhoneNumber" Keyboard="Telephone" Placeholder="+000 000 0000"
+                                            BackgroundColor="#E9ECF1" TextColor="#151940"
+                                           Text="{Binding PhoneNumber}"
+                                           Style="{StaticResource EntryTextColorStyle}" />
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame"
+                                     Binding="{Binding Source={x:Reference PhoneNumber},
+                                     Path=IsFocused}"
+                                     Value="True">
+                            <Setter Property="BorderColor" Value="#314BCE"/>
+                        </DataTrigger>
+                    </Frame.Triggers>
+                </Frame>
+
+                <Label Text="{Binding WrongPhoneNumber,Mode=TwoWay}" FontSize="14"/>
+
+                <Button Margin="0,15,0,10" Text="Next" Command="{Binding NextCommand}"/>
+
+                <Label Text="or" TextColor="#486484" FontSize="15" HorizontalOptions="Center"
+                        FontFamily="SF Pro Display"/>
+
+                <Grid ColumnDefinitions="*,*" Margin="0,15">
+                    <Button Text="GOOGLE" FontSize="14" HeightRequest="50" BackgroundColor="#E9ECF1"
+                        CornerRadius="10" TextColor="#151940" CharacterSpacing="2.5" x:Name="Google"/>
+                    <Button Grid.Column="1" Text="Facebook" FontSize="14" HeightRequest="53" CornerRadius="10"
+                    BackgroundColor="#E9ECF1" TextColor="#151940" CharacterSpacing="2.5"/>
+                </Grid>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="Start" Margin="0,40">
+                <Label Text="Already have an account?" FontSize="14" HorizontalOptions="Start"/>
+                <ImageButton Source="RegisterLogin" HeightRequest="20" WidthRequest="95" HorizontalOptions="Start"
+                         BackgroundColor="White" Command="{Binding LoginCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

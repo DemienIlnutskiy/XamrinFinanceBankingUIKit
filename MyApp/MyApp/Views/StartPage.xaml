@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.StartPage"
+             BackgroundColor="#5771F9"
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <vm:StartViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Image WidthRequest="140" HeightRequest="140" Source="MainWindowWallet"/>
+                <StackLayout Margin="50,0">
+                <Label Text="Wallet" FontSize="65" TextColor="White" FontFamily="Poppins" 
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Money Transfer, Wallet &amp; Finance UI Kit" TextColor="White"
+                        Margin="0,0,0,80" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Button Text="Get Started Now" HeightRequest="55" BackgroundColor="White" 
+                        TextColor="#5771F9" Command="{Binding NextPageCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

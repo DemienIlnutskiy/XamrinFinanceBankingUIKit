@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Styles.StandartStyle"
+             xmlns:customs="clr-namespace:MyApp.CustomElements">
+
+    <Style TargetType="Grid">
+        <Setter Property="Margin" Value="40,-40,40,0"/>
+    </Style>
+
+    <Style TargetType="StackLayout">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Spacing" Value="0"/>
+    </Style>
+
+    <Style TargetType="Image">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="TextTransform" Value="None"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="BackgroundColor" Value="#5771F9"/>
+        <Setter Property="FontFamily" Value="SF Pro Display"/>
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="#151940"/>
+        <Setter Property="FontFamily" Value="Inter"/>
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="PlaceholderColor" Value="#7F8192"/>
+        <Setter Property="HeightRequest" Value="55"/>
+        <Setter Property="BackgroundColor" Value="#E9ECF1"/>
+        <Setter Property="TextColor" Value="#151940"/>
+        <Setter Property="FontFamily" Value="Inter"/>
+    </Style>
+
+    <Style TargetType="CheckBox">
+        <Setter Property="Color" Value="#979797"/>
+        <Style.Triggers>
+            <Trigger TargetType="CheckBox" Property="IsChecked" Value="True">
+                <Setter Property="Color" Value="#5771F9"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="customs:VerifyCodeCustomEntry">
+        <Setter Property="TextColor" Value="#151940"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="#E9ECF1"/>
+        <Setter Property="BorderColor" Value="#E9ECF1"/>
+    </Style>
+
+    <Style TargetType="customs:CustomEntry">
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="TextColor" Value="#151940"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="#E9ECF1"/>
+        <Setter Property="BorderColor" Value="#E9ECF1"/>
+        <Style.Triggers>
+            <Trigger TargetType="customs:CustomEntry" Property="IsFocused" Value="True">
+                <Setter Property="BorderColor" Value="#5771F9"/>
+                <Setter Property="BackgroundColor" Value="#E9ECF1"/>
+                <Setter Property="TextColor" Value="#5771F9"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

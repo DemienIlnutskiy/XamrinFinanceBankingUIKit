@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.WelcomePage" 
+             BackgroundColor="#5771F9"
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <vm:WelcomeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Margin="30,95,30,100" RowDefinitions="* ,auto">
+            <StackLayout>
+                <Image Aspect="AspectFill" Source="WelcomeBagMoney.png" VerticalOptions="End"/>
+                <Label Text="Welcome" FontSize="65" TextColor="White" FontFamily="Gilroy-Bold" />
+                <Label Text="Stay on top by effortiessly tracking your subscribes &amp; bills" TextColor="White"/>
+            </StackLayout>
+            <ImageButton WidthRequest="95" HeightRequest="95" CornerRadius="90" Grid.Row="1"
+                         HorizontalOptions="Center" BackgroundColor="White" Source="IconWelcomeArrow.png" 
+                         Padding="35" Command="{Binding NextPageCommand}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

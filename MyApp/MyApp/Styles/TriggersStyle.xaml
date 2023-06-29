@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Styles.EnventTriggersStyle"
+             xmlns:triggers="clr-namespace:MyApp.Triggers">
+
+    <Style TargetType="ImageButton" x:Key="ClickedViewPasswordStyle">
+        <Style.Triggers>
+            <EventTrigger Event="Clicked">
+                <triggers:ClickedViewPasswordImageSourceTrigger/>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
